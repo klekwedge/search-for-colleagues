@@ -3,6 +3,7 @@
     <h3 class="result__title">
       Выберите сотрудника, чтобы посмотреть его профиль
     </h3>
+    <!-- {{ currentUser }} -->
   </div>
 </template>
     
@@ -10,6 +11,11 @@
 
 export default {
   name: "UserCard",
+  computed: {
+    currentUser() {
+      return this.$store.state.currentUser;
+    },
+  },
 };
 </script>
   

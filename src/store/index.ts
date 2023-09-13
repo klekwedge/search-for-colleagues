@@ -2,11 +2,15 @@ import Vuex from 'vuex';
 
 const store = new Vuex.Store({
     state: {
-        users: []
+        users: [],
+        currentUser: null,
     },
     mutations: {
         SET_USERS(state, users) {
             state.users = users
+        },
+        SET_CURRENT_USER(state, userId) {
+            state.currentUser = state.users.find(user => user.id === userId)
         }
     },
     actions: {
@@ -16,11 +20,17 @@ const store = new Vuex.Store({
                 .then(users => {
                     commit('SET_USERS', users)
                 })
+        },
+        changeCurrentUser({ commit }, userId){
+            commit('SET_CURRENT_USER', userId)
         }
     },
     getters: {
         getUsers(state) {
             return state.users
+        },
+        getCurrentUser(state) {
+            return state.currentUser
         }
     }
 })

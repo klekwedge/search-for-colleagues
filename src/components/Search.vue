@@ -9,6 +9,7 @@
         :key="user.id"
         :name="user.name"
         :email="user.email"
+        @click="test(user.id)"
         >{{
       }}</UserPreview>
     </ul>
@@ -30,6 +31,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("fetchUsers");
+  },
+  methods: {
+    test(id) {
+      this.$store.dispatch("changeCurrentUser", id);
+    },
   },
 };
 </script>

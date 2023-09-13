@@ -1,6 +1,10 @@
 <template>
   <div class="preview">
-    <img class="preview__image" src="./../assets/image.png" alt="preview card" />
+    <img
+      class="preview__image"
+      src="./../assets/image.png"
+      alt="preview card"
+    />
     <div class="preview__info">
       {{ name }}
       {{ email }}
@@ -31,6 +35,7 @@ export default {
   border-radius: 10px;
   background: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 
   .preview__image {
     width: 70px;
