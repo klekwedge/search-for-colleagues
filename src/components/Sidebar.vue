@@ -24,19 +24,18 @@
     <h3 class="sidebar__error" v-else-if="isLoading === 'error'">
       Возникла ошибка на сервере
     </h3>
-    <h3 class="sidebar__loading" v-else-if="isLoading === 'loading'">
-      Идет загрузка...
-    </h3>
+    <Loader class="sidebar__loading" v-else-if="isLoading === 'loading'" />
   </div>
 </template>
       
 <script>
 import { mapGetters } from "vuex";
 import UserPreview from "./UserPreview.vue";
+import Loader from "./Loader.vue";
 
 export default {
   name: "Sidebar",
-  components: { UserPreview },
+  components: { UserPreview, Loader },
   data() {
     return {
       inputValue: "",
@@ -113,11 +112,6 @@ export default {
 
   .sidebar__error {
     color: #e31f24;
-    font-size: 16px;
-  }
-
-  .sidebar__loading {
-    color: #1f6de3;
     font-size: 16px;
   }
 }
