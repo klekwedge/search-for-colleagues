@@ -6,14 +6,14 @@
     <h3 class="search__result">начните поиск</h3>
   </div>
 </template>
-    
-    <script>
+      
+      <script>
 export default {
   name: "Search",
 };
 </script>
-  
-    <style lang="scss" scoped>
+    
+      <style lang="scss" scoped>
 .search {
   display: flex;
   flex-direction: column;
