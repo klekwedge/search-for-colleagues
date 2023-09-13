@@ -47,6 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  box-sizing: border-box;
   width: 100vw;
   height: 100vh;
   display: flex;
