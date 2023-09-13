@@ -24,6 +24,9 @@
     <h3 class="sidebar__error" v-else-if="isLoading === 'error'">
       Возникла ошибка на сервере
     </h3>
+    <h3 class="sidebar__loading" v-else-if="isLoading === 'loading'">
+      Идет загрузка...
+    </h3>
   </div>
 </template>
       
@@ -54,8 +57,7 @@ export default {
     search() {
       if (this.inputValue) {
         this.$store.dispatch("fetchUsers", this.inputValue);
-      }
-      else {
+      } else {
         this.$store.dispatch("resetUsers");
       }
     },
@@ -111,6 +113,11 @@ export default {
 
   .sidebar__error {
     color: #e31f24;
+    font-size: 16px;
+  }
+
+  .sidebar__loading {
+    color: #1f6de3;
     font-size: 16px;
   }
 }

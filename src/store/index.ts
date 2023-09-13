@@ -29,7 +29,7 @@ const store = createStore<State>({
     },
     actions: {
         fetchUsers({ commit }: { commit: Function }, inputValue: string) {
-            // commit('SET_LOADING', 'loading')
+            commit('SET_LOADING', 'loading')
 
             return axios.get('https://jsonplaceholder.typicode.com/users', {
                 params: {
@@ -44,6 +44,7 @@ const store = createStore<State>({
         },
         resetUsers({ commit }: { commit: Function }) {
             commit('SET_USERS', [])
+            commit('SET_LOADING', 'idle')
         },
         changeCurrentUser({ commit }: { commit: Function }, userId: number) {
             commit('SET_CURRENT_USER', userId)
