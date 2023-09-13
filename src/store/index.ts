@@ -42,6 +42,9 @@ const store = createStore<State>({
                 commit('SET_LOADING', 'error')
             })
         },
+        resetUsers({ commit }: { commit: Function }) {
+            commit('SET_USERS', [])
+        },
         changeCurrentUser({ commit }: { commit: Function }, userId: number) {
             commit('SET_CURRENT_USER', userId)
         }

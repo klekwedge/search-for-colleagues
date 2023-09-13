@@ -21,7 +21,9 @@
     <h3 class="sidebar__result" v-else-if="isLoading === 'idle'">
       начните поиск
     </h3>
-    <h3 class="sidebar__error" v-else-if="isLoading === 'error'">Возникла ошибка на сервере</h3>
+    <h3 class="sidebar__error" v-else-if="isLoading === 'error'">
+      Возникла ошибка на сервере
+    </h3>
   </div>
 </template>
       
@@ -50,7 +52,12 @@ export default {
       this.$store.dispatch("changeCurrentUser", id);
     },
     search() {
-      this.$store.dispatch("fetchUsers", this.inputValue);
+      if (this.inputValue) {
+        this.$store.dispatch("fetchUsers", this.inputValue);
+      }
+      else {
+        this.$store.dispatch("resetUsers");
+      }
     },
   },
 };
@@ -61,6 +68,8 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  width: 100%;
+  max-width: 290px;
 
   input {
     width: 240px;
