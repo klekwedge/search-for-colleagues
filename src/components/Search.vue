@@ -1,7 +1,12 @@
 <template>
   <div class="search">
     <h3 class="search__title">Поиск сотрудников</h3>
-    <input type="text" placeholder="Введите Id или имя " />
+    <input
+      v-model="inputValue"
+      type="text"
+      placeholder="Введите Id или имя"
+      @input="search"
+    />
     <h2 class="search__title">Результаты</h2>
     <ul v-if="users.length" class="search__list">
       <UserPreview
@@ -9,7 +14,7 @@
         :key="user.id"
         :name="user.name"
         :email="user.email"
-        @click="test(user.id)"
+        @click="chooseUser(user.id)"
         >{{
       }}</UserPreview>
     </ul>
@@ -24,17 +29,22 @@ import UserPreview from "./UserPreview.vue";
 export default {
   name: "Search",
   components: { UserPreview },
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
   computed: {
     users() {
       return this.$store.state.users;
     },
   },
-  mounted() {
-    this.$store.dispatch("fetchUsers");
-  },
   methods: {
-    test(id) {
+    chooseUser(id) {
       this.$store.dispatch("changeCurrentUser", id);
+    },
+    search() {
+      this.$store.dispatch("fetchUsers", this.inputValue);
     },
   },
 };

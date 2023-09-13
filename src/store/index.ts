@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Vuex from 'vuex';
 
 const store = new Vuex.Store({
@@ -14,14 +15,16 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        fetchUsers({ commit }) {
-            return fetch('https://jsonplaceholder.typicode.com/users')
-                .then(response => response.json())
-                .then(users => {
-                    commit('SET_USERS', users)
-                })
+        fetchUsers({ commit }, inputValue) {
+            return axios.get('https://jsonplaceholder.typicode.com/users', {
+                params: {
+                    name_like: inputValue
+                }
+            }).then(response => response.data).then(users => {
+                commit('SET_USERS', users)
+            })
         },
-        changeCurrentUser({ commit }, userId){
+        changeCurrentUser({ commit }, userId) {
             commit('SET_CURRENT_USER', userId)
         }
     },
