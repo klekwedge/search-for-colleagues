@@ -18,7 +18,10 @@
         >{{
       }}</UserPreview>
     </ul>
-    <h3 class="search__result" v-else>начните поиск</h3>
+    <h3 class="search__result" v-else-if="isLoading === 'idle'">
+      начните поиск
+    </h3>
+    <h3 class="search__error" v-else-if="isLoading === 'error'">Возникла ошибка на сервере</h3>
   </div>
 </template>
       
@@ -37,6 +40,9 @@ export default {
   computed: {
     users() {
       return this.$store.state.users;
+    },
+    isLoading() {
+      return this.$store.state.isLoading;
     },
   },
   methods: {
@@ -94,6 +100,11 @@ export default {
     flex-direction: column;
     gap: 20px;
     overflow: auto;
+  }
+
+  .search__error {
+    color: #e31f24;
+    font-size: 16px;
   }
 }
 </style>
