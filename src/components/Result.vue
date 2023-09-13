@@ -1,14 +1,27 @@
 <template>
   <div class="result">
-    <h3 class="result__title">
+    <ul>
+      <li v-for="user in users" :key="user.id">{{ user.name }}</li>
+    </ul>
+    <!-- <h3 class="result__title">
       Выберите сотрудника, чтобы посмотреть его профиль
-    </h3>
+    </h3> -->
   </div>
 </template>
     
-    <script>
+<script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Result",
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
+  },
+  mounted() {
+    this.$store.dispatch("fetchUsers");
+  },
 };
 </script>
   
