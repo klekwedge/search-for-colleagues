@@ -1,6 +1,6 @@
-# Example
+# Search for colleagues
 
-**You can also read this README in [English](https://github.com/klekwedge/example/blob/main/README.EN.md).**
+**You can also read this README in [English](https://github.com/klekwedge/search-for-colleagues/blob/main/README.EN.md).**
 
 ## Оглавление
 
@@ -10,14 +10,13 @@
   - [Ссылки](#ссылки)
 - [Мой процесс](#мой-процесс)
   - [Стек](#стек)
-  - [Что я узнал](#что-я-узнал)
 - [Автор](#автор)
 
 ## Инструкции по развертыванию
 
 **Для запуска проекта на вашем компьютере должны быть установлены [npm](https://nodejs.org/en/) и [git](https://git-scm.com/downloads)**
 
-1. Сделайте клон этого репозитория ```git clone https://github.com/klekwedge/example.git```
+1. Сделайте клон этого репозитория ```git clone https://github.com/klekwedge/search-for-colleagues.git```
 2. Установите все необходимые пакеты npm с помощью ```npm i```
 3. Запустите проект командой ```npm run dev```
 
@@ -29,18 +28,17 @@
 
 ### Ссылки
 
-- [Ссылка на проект](https://github.com/klekwedge/example)
-- [Деплой](https://klekwedge-example.vercel.app/)
+- [Ссылка на проект](https://github.com/klekwedge/search-for-colleagues)
+- [Деплой](https://klekwedge-search-for-colleagues.vercel.app/)
 
 ## Мой процесс
 
 ### Стек
 
 - Vue
+- Vuex
 - TypeScript
 - SCSS
-
-### Что я узнал
 
 ## Автор
 
