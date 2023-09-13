@@ -1,19 +1,10 @@
 <template>
   <div class="container">
     <Header />
-    <input
-      type="text"
-      v-model="searchTerm"
-      @input="searchUsers"
-      placeholder="Search users"
-    />
     <div class="content">
       <Search />
-      <Result />
+      <UserCard />
     </div>
-    <ul>
-      <li v-for="user in users" :key="user.id">{{ user.name }}</li>
-    </ul>
   </div>
 </template>
 
@@ -21,13 +12,13 @@
 import axios from "axios";
 import Header from "./components/Header.vue";
 import Search from "./components/Search.vue";
-import Result from "./components/Result.vue";
+import UserCard from "./components/UserCard.vue";
 
 export default {
   components: {
     Header,
     Search,
-    Result,
+    UserCard,
   },
   data() {
     return {
