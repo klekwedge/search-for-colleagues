@@ -1,14 +1,36 @@
 <template>
-  <div>Hello</div>
+  <div>
+    <input type="text" v-model="searchTerm" @input="searchUsers" placeholder="Search users">
+    <ul>
+      <li v-for="user in users" :key="user.id">{{ user.name }}</li>
+    </ul>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
+import axios from 'axios';
+
 export default {
-  setup() {
-    return {};
+  data() {
+    return {
+      searchTerm: '',
+      users: [],
+    };
+  },
+  methods: {
+    searchUsers() {
+      axios.get('https://jsonplaceholder.typicode.com/users', {
+        params: {
+          name_like: this.searchTerm,
+        },
+      })
+        .then(response => {
+          this.users = response.data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
   },
 };
 </script>
-
-<style scoped>
-</style>
