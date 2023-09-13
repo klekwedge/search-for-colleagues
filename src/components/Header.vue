@@ -17,7 +17,7 @@ export default {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 
   .header__title {
     color: #e31f24;

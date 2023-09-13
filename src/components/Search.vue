@@ -3,8 +3,14 @@
     <h3 class="search__title">Поиск сотрудников</h3>
     <input type="text" placeholder="Введите Id или имя " />
     <h2 class="search__title">Результаты</h2>
-    <ul v-if="users.length">
-        <li v-for="user in users" :key="user.id">{{ user.name }}</li>
+    <ul v-if="users.length" class="search__list">
+      <UserPreview
+        v-for="user in users"
+        :key="user.id"
+        :name="user.name"
+        :email="user.email"
+        >{{
+      }}</UserPreview>
     </ul>
     <h3 class="search__result" v-else>начните поиск</h3>
   </div>
@@ -12,9 +18,11 @@
       
 <script>
 import { mapGetters } from "vuex";
+import UserPreview from "./UserPreview.vue";
 
 export default {
   name: "Search",
+  components: { UserPreview },
   computed: {
     users() {
       return this.$store.state.users;
@@ -63,6 +71,13 @@ export default {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  .search__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
   }
 }
 </style>

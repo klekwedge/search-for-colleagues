@@ -52,7 +52,7 @@ export default {
   display: flex;
   flex-direction: column;
   max-width: 1260px;
-  padding: 0px 20px;
+  padding: 50px 20px;
   margin: 0 auto;
 }
 
