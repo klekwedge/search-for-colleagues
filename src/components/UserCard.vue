@@ -1,13 +1,13 @@
 <template>
-  <div class="result">
-    <div class="result__info" v-if="currentUser">
+  <div class="card">
+    <div class="card__container" v-if="currentUser">
       <img
-        class="result__image"
+        class="card__image"
         src="./../assets/big-image.png"
         alt="user image"
       />
-      <div class="result__content">
-        <div class="result__user user">
+      <div class="card__user user">
+        <div class="user__contacts">
           <h2 class="user__name">{{ currentUser.name }}</h2>
           <h3 class="user__contact">
             email: <span>{{ currentUser.email }}</span>
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-    <h3 class="result__title" v-else>
+    <h3 class="card__title" v-else>
       Выберите сотрудника, чтобы посмотреть его профиль
     </h3>
   </div>
@@ -49,7 +49,7 @@ export default {
 </script>
   
 <style lang="scss" scoped>
-.result {
+.card {
   display: flex;
   position: relative;
   width: 100%;
@@ -57,7 +57,7 @@ export default {
   border-left: 1px solid #dededd;
   background: #fff;
 
-  .result__title {
+  .card__title {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,12 +67,7 @@ export default {
     font-weight: 400;
   }
 
-  .result__image {
-    width: 100%;
-    max-width: 424px;
-  }
-
-  .result__info {
+  .card__container {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -80,13 +75,16 @@ export default {
     padding: 20px;
   }
 
-  .result__content {
-    display: flex;
-    flex-direction: column;
+  .card__image {
+    width: 100%;
+    max-width: 424px;
   }
 
-  .result__user {
-    margin-bottom: 20px;
+  .card__user {
+    .user__contacts {
+      margin-bottom: 20px;
+    }
+
     .user__name {
       color: #000;
       font-size: 16px;
@@ -98,33 +96,29 @@ export default {
     .user__contact {
       color: #333;
       font-size: 14px;
-      font-style: normal;
       font-weight: 600;
-      line-height: 140%; /* 19.6px */
+      line-height: 140%;
 
       span {
         color: #76787d;
         font-size: 14px;
-        font-style: normal;
         font-weight: 400;
         line-height: 140%;
       }
     }
-  }
-  .user__about {
-    color: #333;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 140%; /* 22.4px */
-  }
 
-  .user__text {
-    color: #76787d;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    .user__about {
+      color: #333;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 140%;
+    }
+
+    .user__text {
+      color: #76787d;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
 }
 </style>

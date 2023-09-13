@@ -5,9 +5,9 @@
       src="./../assets/image.png"
       alt="preview card"
     />
-    <div class="preview__info">
-      {{ name }}
-      {{ email }}
+    <div class="preview__info info">
+      <h3 class="info__name">{{ name }}</h3>
+      <h3 class="info__email">{{ email }}</h3>
     </div>
   </div>
 </template>
@@ -47,6 +47,18 @@ export default {
     padding: 15px;
     flex-direction: column;
     gap: 5px;
+
+    .info__name {
+      color: #333;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .info__email {
+      color: #76787d;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="container">
     <Header />
     <div class="content">
-      <Search />
+      <Sidebar />
       <UserCard />
     </div>
   </div>
@@ -11,13 +11,13 @@
 <script>
 import axios from "axios";
 import Header from "./components/Header.vue";
-import Search from "./components/Search.vue";
+import Sidebar from "./components/Sidebar.vue";
 import UserCard from "./components/UserCard.vue";
 
 export default {
   components: {
     Header,
-    Search,
+    Sidebar,
     UserCard,
   },
   data() {

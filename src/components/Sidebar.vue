@@ -1,14 +1,14 @@
 <template>
-  <div class="search">
-    <h3 class="search__title">Поиск сотрудников</h3>
+  <div class="sidebar">
+    <h3 class="sidebar__title">Поиск сотрудников</h3>
     <input
       v-model="inputValue"
       type="text"
       placeholder="Введите Id или имя"
       @input="search"
     />
-    <h2 class="search__title">Результаты</h2>
-    <ul v-if="users.length" class="search__list">
+    <h2 class="sidebar__title">Результаты</h2>
+    <ul v-if="users.length" class="sidebar__list">
       <UserPreview
         v-for="user in users"
         :key="user.id"
@@ -18,10 +18,10 @@
         >{{
       }}</UserPreview>
     </ul>
-    <h3 class="search__result" v-else-if="isLoading === 'idle'">
+    <h3 class="sidebar__result" v-else-if="isLoading === 'idle'">
       начните поиск
     </h3>
-    <h3 class="search__error" v-else-if="isLoading === 'error'">Возникла ошибка на сервере</h3>
+    <h3 class="sidebar__error" v-else-if="isLoading === 'error'">Возникла ошибка на сервере</h3>
   </div>
 </template>
       
@@ -30,7 +30,7 @@ import { mapGetters } from "vuex";
 import UserPreview from "./UserPreview.vue";
 
 export default {
-  name: "Search",
+  name: "Sidebar",
   components: { UserPreview },
   data() {
     return {
@@ -57,7 +57,7 @@ export default {
 </script>
     
       <style lang="scss" scoped>
-.search {
+.sidebar {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
@@ -79,7 +79,7 @@ export default {
     }
   }
 
-  .search__title {
+  .sidebar__title {
     color: #333;
     font-size: 16px;
     font-weight: 600;
@@ -87,22 +87,20 @@ export default {
     margin-bottom: 15px;
   }
 
-  .search__result {
+  .sidebar__result {
     color: #76787d;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;
   }
 
-  .search__list {
+  .sidebar__list {
     display: flex;
     flex-direction: column;
     gap: 20px;
     overflow: auto;
   }
 
-  .search__error {
+  .sidebar__error {
     color: #e31f24;
     font-size: 16px;
   }
