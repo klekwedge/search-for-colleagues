@@ -121,4 +121,18 @@ export default {
     }
   }
 }
+
+@media (max-width: 1120px) {
+  .card {
+    border-left: none;
+    .card__container {
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .card__image {
+      max-width: 100%;
+    }
+  }
+}
 </style>

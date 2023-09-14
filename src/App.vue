@@ -67,4 +67,15 @@ export default {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   padding: 15px 25px;
 }
+
+@media (max-width: 680px) {
+  .container {
+    padding: 50px 10px;
+  }
+
+  .content {
+    flex-direction: column;
+    padding: 15px;
+  }
+}
 </style>
